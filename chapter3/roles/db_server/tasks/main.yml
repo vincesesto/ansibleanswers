@@ -21,8 +21,8 @@
     - ::1
     - localhost 
 - name: create a new database
-  mysql_db: name=testdb state=present login_user=root login_password=password
+  mysql_db: name=web_app state=present login_user=root login_password=password
 - name: add sample data to database
   copy: src=dump.sql dest=/tmp/dump.sql
 - name: insert sample data into database
-  mysql_db: name=testdb state=import target=/tmp/dump.sql login_user=root login_password=password
+  mysql_db: name=web_app state=import target=/tmp/dump.sql login_user=root login_password=password
