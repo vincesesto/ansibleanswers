@@ -2,17 +2,17 @@
 - name: ensure apache is installed and at the latest version
   apt: name=apache2 state=present
 - name: write the apache config file
-  file: src=000-default.conf dest=/etc/apache2/sites-available/000-default.conf
+  copy: src=000-default.conf dest=/etc/apache2/sites-available/000-default.conf
   notify:
    - restart apache
 - name: apache is running (and enable it at boot)
   service: name=apache2 state=started enabled=yes
 - name: disable pmp_event on apache
-  apache2_module: name=mpm_event state=absent
+  shell: "a2dismod mpm_event"
   notify:
   - restart apache
 - name: enable pmp_event on apache
-  apache2_module: name=cgi state=present
+  shell: "a2enmod mpm_prefork cgi"
   notify:
   - restart apache
 - name: install pymysql module for index to use
@@ -20,7 +20,6 @@
 - name: add in a test directory
   file: path=/var/www/test/ state=directory
 - name: add in your index file
-  file: src=index.py dest=/var/www/test/index.py
+  copy: src=index.py dest=/var/www/test/index.py
   notify:
   - restart apache
-
