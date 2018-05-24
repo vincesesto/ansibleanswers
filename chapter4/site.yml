@@ -1,0 +1,7 @@
+---
+- hosts: webserver
+  become: yes
+  roles:
+  - web_server
+  - db_server
+  - django_app
