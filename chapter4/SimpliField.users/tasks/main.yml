@@ -1,0 +1,9 @@
+---
+- name: create user {{ item.name }}
+  user:
+    name: "{{ item.name }}"
+    comment: "{{ item.comment | default(omit) }}"
+    createhome: "{{ item.createhome | default(omit) }}"
+    home: "{{ item.home | default(omit) }}"
+    shell: "{{ item.shell | default(omit) }}"
+  with_items: "{{ users }}"

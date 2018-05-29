@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - role: ansible-users
+      users:
+      - simplifield:
+        name: "simplifield"
+        comment: "simplifield user"
+        createhome: "yes"
+        home: "/home/simplifield"
+        shell: "/bin/false"

@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  roles:
+  - role: SimpliField.users
+    users:
+    - simplifield:
+      name: "simplifield"
+      comment: "simplifield user"
+      createhome: "yes"
+      home: "/home/simplifield"
+      shell: "/bin/false"

@@ -1,0 +1,8 @@
+---
+- hosts: webserver
+  tasks:
+  - name: testing our new module
+    hello_mods:
+    register: result
+
+  - debug: var=result
