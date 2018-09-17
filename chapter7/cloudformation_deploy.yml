@@ -4,6 +4,11 @@
    gather_facts: false
    user: root
    roles:
-    - splunk_cloud
-
+    - role: splunk_cloud
+   tasks:
+   - debug:
+       msg: "Production Server Public IP Address {{  splunk_public_ip }}"
+   - name: Final Task
+     debug:
+       msg: "This is the end of the playbook"
 
