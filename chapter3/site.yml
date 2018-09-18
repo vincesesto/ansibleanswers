@@ -3,5 +3,6 @@
   become: yes
   roles:
   - web_server
-  - db_server
+  - role: db_server
+    tags: ['deploy_database_only']
   - django_app

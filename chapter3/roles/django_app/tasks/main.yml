@@ -1,6 +1,7 @@
 ---
 - name: install django and make sure it is at the latest version
   apt: name=python3-django state=present
+  tags: django_alive
 - name: check if django app already exists
   shell: ls -l {{ django_app_location }} | grep -c web_app
   register: djangostatus
