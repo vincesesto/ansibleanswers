@@ -1,0 +1,12 @@
+---
+exclude_paths:
+  - roles/
+parseable: true
+quiet: true
+rulesdir:
+  - test_rules/
+skip_list:
+  - skip_this_tag
+  - and_this_one_too
+use_default_rules: true
+verbosity: 1
