@@ -5,5 +5,3 @@
    user: root
    roles:
     - splunk_server
-
-
